@@ -27,10 +27,10 @@ public class MybatisGenerator {
             }
         }
 
-        if (deleteDirectory(mapperDir)){
-           if ( mapperDir.delete()){
+        if (mapperDir.exists()){
+            if (deleteDirectory(mapperDir))
                System.out.println("删除目录："+mapperDir.getCanonicalPath());
-           }
+
         }
 
         List<String> warnings = new ArrayList<>();
