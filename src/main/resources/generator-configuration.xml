@@ -19,7 +19,7 @@
 
         <!-- 数据库链接URL、用户名、密码 -->
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://localhost:3306/noxml"
+                        connectionURL="jdbc:mysql://localhost:3306/db_apigsec"
                         userId="root"
                         password="123456">
         </jdbcConnection>
@@ -37,7 +37,7 @@
         也可以使用“MAVEN”来自动生成，这样生成的代码会在target/generatord-source目录下
         -->
         <!--<javaModelGenerator targetPackage="com.joey.mybaties.test.pojo" targetProject="MAVEN">-->
-        <javaModelGenerator targetPackage="com.csdn.ingo.entity" targetProject="./src/main/java">
+        <javaModelGenerator targetPackage="com.jd.sentinel.apigsec.opt.web.model.anticrawler" targetProject="./src/main/java">
             <property name="enableSubPackages" value="true"/>
             <!-- 从数据库返回的值被清理前后的空格  -->
             <property name="trimStrings" value="true" />
@@ -51,16 +51,16 @@
         </sqlMapGenerator>
 
         <!-- 对应的Mapper接口类文件 -->
-        <javaClientGenerator type="XMLMAPPER" targetPackage="com.csdn.ingo.dao" targetProject="./src/main/java">
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.jd.sentinel.apigsec.opt.web.dao.mapper" targetProject="./src/main/java">
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
 
 
         <!-- 列出要生成代码的所有表，这里配置的是不生成Example文件 -->
-        <table tableName="activity" domainObjectName="UserInfoPO">
-<!--               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"-->
-<!--               enableSelectByExample="false" selectByExampleQueryId="false" -->
-
+        <table tableName="t_anti_crawler_apply" domainObjectName="AntiCrawlerApply">
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+        <table tableName="t_app_info" domainObjectName="AppInfo">
             <property name="useActualColumnNames" value="false"/>
         </table>
     </context>
